@@ -202,12 +202,14 @@ namespace Socks5Test.Core
                                 {
                                     //取得域名地址
                                     string domainName = Encoding.ASCII.GetString(buffer);
+                                    Server.Logger.WriteLine($"domainName is :{domainName}");
                                     try
                                     {
                                         IPAddress[] addresses = Dns.GetHostAddresses(domainName);
                                         if (addresses.Length != 0)
                                         {
                                             ipAddress = addresses[0];
+                                            Server.Logger.WriteLine($"domainName's IP is :{ipAddress}");
                                         }
                                         else
                                         {
